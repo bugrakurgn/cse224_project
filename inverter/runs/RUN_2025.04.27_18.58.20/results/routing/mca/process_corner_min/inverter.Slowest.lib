@@ -1,0 +1,62 @@
+library (inverter) {
+  comment                        : "";
+  delay_model                    : table_lookup;
+  simulation                     : false;
+  capacitive_load_unit (1,pF);
+  leakage_power_unit             : 1pW;
+  current_unit                   : "1A";
+  pulling_resistance_unit        : "1kohm";
+  time_unit                      : "1ns";
+  voltage_unit                   : "1v";
+  library_features(report_delay_calculation);
+
+  input_threshold_pct_rise : 50;
+  input_threshold_pct_fall : 50;
+  output_threshold_pct_rise : 50;
+  output_threshold_pct_fall : 50;
+  slew_lower_threshold_pct_rise : 20;
+  slew_lower_threshold_pct_fall : 20;
+  slew_upper_threshold_pct_rise : 80;
+  slew_upper_threshold_pct_fall : 80;
+  slew_derate_from_library : 1.0;
+
+
+  nom_process                    : 1.0;
+  nom_temperature                : 100.0;
+  nom_voltage                    : 1.60;
+
+  lu_table_template(template_1) {
+    variable_1 : total_output_net_capacitance;
+    index_1 ("0.00050,  0.00166,  0.00551,  0.01830,  0.06076,  0.20175,  0.66987");
+  }
+
+  cell ("inverter") {
+    interface_timing : true;
+    pin("in") {
+      direction : input;
+      capacitance : 0.0026;
+    }
+    pin("out") {
+      direction : output;
+      capacitance : 0.0004;
+      timing() {
+        related_pin : "in";
+        timing_sense : negative_unate;
+        timing_type : combinational;
+	cell_rise(template_1) {
+          values("0.38395,0.39414,0.42136,0.49367,0.71901,1.46125,3.92461");
+	}
+	rise_transition(template_1) {
+          values("0.03055,0.03937,0.06655,0.15753,0.47260,1.52822,5.00943");
+	}
+	cell_fall(template_1) {
+          values("0.45574,0.46568,0.48970,0.54343,0.67914,1.10023,2.49302");
+	}
+	fall_transition(template_1) {
+          values("0.03254,0.03947,0.05711,0.10731,0.27074,0.84430,2.74110");
+	}
+      }
+    }
+  }
+
+}

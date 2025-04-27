@@ -1,0 +1,1 @@
+lvs {/openlane/designs/inverter/runs/RUN_2025.04.27_18.58.20/results/signoff/inverter.spice inverter} {/openlane/designs/inverter/runs/RUN_2025.04.27_18.58.20/tmp/signoff/34-inverter.pnl.v inverter} /home/bugrakurgn/.volare/sky130A/libs.tech/netgen/sky130A_setup.tcl /openlane/designs/inverter/runs/RUN_2025.04.27_18.58.20/logs/signoff/37-inverter.lef.lvs.log -json
