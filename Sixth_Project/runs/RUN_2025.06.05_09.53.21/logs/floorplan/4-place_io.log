@@ -1,0 +1,8 @@
+OpenROAD b16bda7e82721d10566ff7e2b68f1ff0be9f9e38 
+Features included (+) or not (-): +Charts +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+Top-level design name: semi_cpu_top
+[WARNING]: Some pins weren't matched by the config file
+Those are: ['seg_high[0]', 'seg_low[0]', 'seg_high[1]', 'seg_low[1]', 'seg_high[2]', 'seg_low[2]', 'seg_high[3]', 'seg_low[3]', 'seg_high[4]', 'seg_low[4]', 'seg_high[5]', 'seg_low[5]', 'seg_high[6]', 'seg_low[6]']
+Treating unmatched pins as errors. Exiting..
